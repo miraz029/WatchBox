@@ -2,10 +2,11 @@
     <string name="app_name">WatchBox</string>
     <string name="title_search">Search</string>
     <string name="title_favorite">Favorite</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="filter_movie_list">Filter Movie List</string>
     <string name="search">Search Movies … </string>
     <string name="plot">Plot</string>
     <string name="cast">Cast</string>
+    <string name="ok">OK</string>
     <string name="director">Director</string>
 
 </resources>

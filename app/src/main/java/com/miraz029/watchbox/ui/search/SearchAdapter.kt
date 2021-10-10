@@ -17,9 +17,31 @@ import kotlin.properties.Delegates
 class SearchAdapter @Inject constructor() : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     internal var collection: MutableList<Movie> by Delegates.observable(mutableListOf()) { _, _, _ ->
+        filterList(optionStates)
+    }
+
+    private var filteredList: MutableList<Movie> by Delegates.observable(mutableListOf()) { _, _, _ ->
         notifyDataSetChanged()
     }
 
+    internal fun filterList(options: BooleanArray) {
+        optionStates = options
+        val result = optionStates.all { it }
+        filteredList = if (result) {
+            collection
+        } else {
+            try {
+                collection.filter {
+                    (it.type == "movie" && optionStates[0]) || (it.type == "series" && optionStates[1])
+                }.toList() as MutableList<Movie>
+            } catch (e: Exception) {
+                mutableListOf()
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    internal var optionStates = booleanArrayOf(true, true)
     internal var clickListener: (Movie) -> Unit = { _ -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,9 +50,9 @@ class SearchAdapter @Inject constructor() : RecyclerView.Adapter<SearchAdapter.V
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) =
-        viewHolder.bind(collection[position], clickListener)
+        viewHolder.bind(filteredList[position], clickListener)
 
-    override fun getItemCount() = collection.size
+    override fun getItemCount() = filteredList.size
 
     class ViewHolder(private val binding: RowMovieBinding) : RecyclerView.ViewHolder(binding.root) {
 

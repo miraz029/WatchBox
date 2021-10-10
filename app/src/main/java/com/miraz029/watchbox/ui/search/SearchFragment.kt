@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -27,6 +28,9 @@ class SearchFragment : Fragment() {
 
     private val binding get() = _binding!!
 
+    lateinit var filterOptions : Array<String>
+    val optionStates = booleanArrayOf(true, true)
+
     @Inject
     lateinit var searchAdapter: SearchAdapter
 
@@ -36,6 +40,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
+        filterOptions = resources.getStringArray(R.array.movie_types)
 
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
 
@@ -47,6 +52,19 @@ class SearchFragment : Fragment() {
         searchAdapter.clickListener = { movie ->
             val bundle = bundleOf(KEY_IMDB_ID to movie.imdbId)
             view?.findNavController()?.navigate(R.id.navigation_details, bundle)
+        }
+
+        binding.ivFilter.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle(R.string.filter_movie_list)
+            builder.setMultiChoiceItems(filterOptions, optionStates) { _, which, isChecked ->
+                optionStates[which] = isChecked
+            }
+            builder.setPositiveButton(R.string.ok) { _, _ ->
+                searchAdapter.filterList(optionStates)
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
 
         binding.svMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {

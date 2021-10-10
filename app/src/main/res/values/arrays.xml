@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="movie_types">
+        <item>Movie</item>
+        <item>Series</item>
+    </string-array>
+</resources>
