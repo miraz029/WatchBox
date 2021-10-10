@@ -1,0 +1,15 @@
+android {
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "IS_PRELIVE", "false"
+            buildConfigField "String", "API_KEY", "\"76d04c13\""
+            buildConfigField "String", "SERVER_URL", "\"https://www.omdbapi.com/\""
+        }
+
+        release {
+            buildConfigField "boolean", "IS_PRELIVE", "true"
+            buildConfigField "String", "API_KEY", "\"76d04c13\""
+            buildConfigField "String", "SERVER_URL", "\"https://www.omdbapi.com/\""
+        }
+    }
+}
