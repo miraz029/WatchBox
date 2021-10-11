@@ -1,7 +1,5 @@
 package com.miraz029.watchbox.data.dao
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,6 +9,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MovieDao {
+
+    @Query("SELECT * FROM movies ORDER BY title")
+    fun getAllMovies(): Flow<List<Movie>>
 
     @Query("SELECT * FROM movies WHERE isFavorite = 1 ORDER BY title")
     fun getFavoriteMovies(): Flow<List<Movie>>
@@ -23,4 +24,7 @@ interface MovieDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertAll(movies: List<Movie>)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(movie: Movie)
 }

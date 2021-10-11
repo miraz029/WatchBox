@@ -1,0 +1,76 @@
+{
+  "Search": [
+    {
+      "Title": "The Godfather",
+      "Year": "1972",
+      "imdbID": "tt0068646",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+    },
+    {
+      "Title": "The Godfather: Part II",
+      "Year": "1974",
+      "imdbID": "tt0071562",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
+    },
+    {
+      "Title": "The Godfather: Part III",
+      "Year": "1990",
+      "imdbID": "tt0099674",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNWFlYWY2YjYtNjdhNi00MzVlLTg2MTMtMWExNzg4NmM5NmEzXkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_SX300.jpg"
+    },
+    {
+      "Title": "The Godfather Trilogy: 1901-1980",
+      "Year": "1992",
+      "imdbID": "tt0150742",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMjk5ODZjYmMtYTJjNy00MTU2LWI5OTYtYTg5YjFlMDk3ZjI0XkEyXkFqcGdeQXVyODAyNDE3Mw@@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Godfather of Harlem",
+      "Year": "2019–",
+      "imdbID": "tt8080122",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZDAyMWIyZTktODY3Yi00NGMzLTgxM2ItY2UzNTZhZjZlZWRjXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_SX300.jpg"
+    },
+    {
+      "Title": "The Godfather: A Novel for Television",
+      "Year": "1977",
+      "imdbID": "tt0809488",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNzk3NmZmMjgtMjA4NS00MjdkLTlkZmMtZGFkMDAyNWU4NDdlXkEyXkFqcGdeQXVyODAyNDE3Mw@@._V1_SX300.jpg"
+    },
+    {
+      "Title": "The Godfather",
+      "Year": "2006",
+      "imdbID": "tt0442674",
+      "Type": "game",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTQyNTE4NzMzNF5BMl5BanBnXkFtZTgwMDgzNTY3MDE@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Godfather",
+      "Year": "1991",
+      "imdbID": "tt0353496",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BYjI2YmJhMTUtYjEzYS00N2VmLTlmMzMtZGQ1MjZhNmY0ODdiXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_SX300.jpg"
+    },
+    {
+      "Title": "Our Godfather",
+      "Year": "2019",
+      "imdbID": "tt10095336",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZWVhMjg3YzMtMDNkMS00MTAwLWEzMTUtM2RmZThiZjM0MGE2XkEyXkFqcGdeQXVyMzQwNDk0OTM@._V1_SX300.jpg"
+    },
+    {
+      "Title": "Disco Godfather",
+      "Year": "1979",
+      "imdbID": "tt0074412",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTU5MzAyMTY1Ml5BMl5BanBnXkFtZTgwNzA2MjI4MzE@._V1_SX300.jpg"
+    }
+  ],
+  "totalResults": "101",
+  "Response": "True"
+}
