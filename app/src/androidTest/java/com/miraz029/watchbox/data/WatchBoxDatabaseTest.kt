@@ -6,7 +6,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.platform.app.InstrumentationRegistry
 import com.miraz029.watchbox.data.dao.MovieDao
 import com.miraz029.watchbox.data.model.Movie
-import com.miraz029.watchbox.utility.testMovies
+import com.miraz029.watchbox.utility.AndroidTestUtility
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.equalTo
@@ -18,13 +18,17 @@ class WatchBoxDatabaseTest {
 
     private lateinit var database: WatchBoxDatabase
     private lateinit var movieDao: MovieDao
+    private lateinit var testMovie: Movie
 
     @Before
     fun createDb() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         database = Room.inMemoryDatabaseBuilder(context, WatchBoxDatabase::class.java).build()
         movieDao = database.movieDao()
-        database.movieDao().insertAll(testMovies)
+
+        val androidTestUtility = AndroidTestUtility()
+        testMovie = androidTestUtility.testMovie
+        database.movieDao().insertAll(androidTestUtility.getMovies())
     }
 
     @After
@@ -34,26 +38,17 @@ class WatchBoxDatabaseTest {
 
     @Test
     fun testInsertMovie() = runBlocking {
-        val movie = Movie(
-            "tt0099674",
-            "The Godfather: Part III",
-            "1990",
-            "movie",
-            "https://m.media-amazon.com/images/M/MV5BNWFlYWY2YjYtNjdhNi00MzVlLTg2MTMtMWExNzg4NmM5NmEzXkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_SX300.jpg",
-            false
-        )
-        movieDao.insert(movie)
+        movieDao.insert(testMovie)
         ViewMatchers.assertThat(movieDao.getAllMovies().first().size, equalTo(3))
     }
 
     @Test
     fun testFavoriteMovie() = runBlocking {
-        movieDao.setFavorite("tt0099674", true)
+        movieDao.setFavorite("tt0068646", true)
         ViewMatchers.assertThat(movieDao.getFavoriteMovies().first().size, equalTo(1))
+
         movieDao.setFavorite("tt0071562", true)
         ViewMatchers.assertThat(movieDao.getFavoriteMovies().first().size, equalTo(2))
-        movieDao.setFavorite("tt0071562", false)
-        ViewMatchers.assertThat(movieDao.getFavoriteMovies().first().size, equalTo(1))
     }
 
 }
